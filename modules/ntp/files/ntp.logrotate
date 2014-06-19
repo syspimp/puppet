@@ -1,0 +1,13 @@
+##
+### THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+##
+
+/var/log/ntp/ntpd.log {
+    notifempty
+    missingok
+    compress
+    delaycompress
+    postrotate
+        /sbin/service ntpd condrestart 2> /dev/null > /dev/null || true
+    endscript
+}

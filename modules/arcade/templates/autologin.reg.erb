@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
+"ForceUnlockLogon"=dword:00000000
+"DefaultDomainName"="<%= scope['arcade::domain'] %>"
+"DefaultUserName"="<%= scope['arcade::arcadeuser'] %>"
+"DefaultPassword"="<%= scope['arcade::arcadepass'] %>"
+"AutoAdminLogon"="1"
+ 
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\AutoLogonChecked]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\AutoLogonCount]
+

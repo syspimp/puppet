@@ -1,0 +1,36 @@
+---
+classes:
+  - base
+  - zenoss
+zenoss::zenossenabled: client
+zenossuser: admin
+zenosspass: password
+zenosshost: localhost
+zenossport: 8080
+snmpcommunity: public
+root_alias: "me@you.com"
+puppetmaster: puppet.fqdn
+puppetmaster_alt_names: "puppet,puppet.fqdn"
+samba_server: 127.0.0.1
+ad_domain: active-dir
+robouser: robouser
+robopass: password
+kickstart::openstack_rootpass: password
+kickstart::kickstartpass: password
+kickstart::puppetmaster: "%{hiera('puppetmaster')}"
+kickstart::puppetmasterip: "%{hiera('puppetmasterip')}"
+miner::minerpath: "C:\CoinMining"
+miner::minerprog: "cgminer-3.7.2-windows"
+sudo::sudoers:
+  - myusername
+user::userlist:
+  myusername:
+    name: myusername
+    groups:
+      - myusername
+    passwd: hash
+    ensure: present
+    home: /home/myusername
+    shell: /bin/bash
+    nopasswd: NOPASSWD
+    email: me@yaho.com

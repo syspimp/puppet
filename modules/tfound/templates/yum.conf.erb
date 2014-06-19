@@ -1,0 +1,41 @@
+##
+#### THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+##
+<% if @lsbmajdistrelease == "6" %>
+[main]
+cachedir=/var/cache/yum/$basearch/$releasever
+keepcache=0
+debuglevel=2
+logfile=/var/log/yum.log
+exactarch=1
+obsoletes=1
+gpgcheck=0
+plugins=1
+installonly_limit=5
+metadata_expire=15m
+exclude=kernel*
+<% else %>
+[main]
+cachedir=/var/cache/yum
+keepcache=1
+debuglevel=2
+logfile=/var/log/yum.log
+distroverpkg=redhat-release
+tolerant=1
+exactarch=1
+obsoletes=1
+gpgcheck=1
+plugins=1
+pkgpolicy=newest
+#exclude=kernel*
+
+# Note: yum-RHN-plugin doesn't honor this.
+metadata_expire=15m
+
+# Default.
+# installonly_limit = 3
+
+# PUT YOUR REPOS HERE OR IN separate files named file.repo
+# in /etc/yum.repos.d
+tsflags=repackage
+<% end %>

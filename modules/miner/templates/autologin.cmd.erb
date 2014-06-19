@@ -1,0 +1,4 @@
+if not exist C:\<%= @minerpath %>\autologin.lock (
+  C:\Windows\System32\regedt32.exe /s C:\<%= @minerpath %>\autologin.reg
+  type nul >> C:\<%= @minerpath %>\autologin.lock
+)

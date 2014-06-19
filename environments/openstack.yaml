@@ -1,0 +1,6 @@
+---
+ntpserver: 127.0.0.1
+syslog: 127.0.0.1
+puppetmasterip: 127.0.0.1
+repoip: "%{hiera('puppetmasterip')}"
+ntp::ntpserver: "%{hiera('ntpserver')}"

@@ -1,0 +1,29 @@
+@echo off
+echo "Setting up music, movies, and games ...."
+ping -n 4 -w 1000 128.0.0.255 > nul
+if not exist g: (
+	C:\Windows\System32\net.exe use g: /delete /y > nul
+  C:\Windows\System32\net.exe use g: \\<%= @samba_server %>\games /persistent:yes > nul > nul
+)
+if not exist m: (
+	C:\Windows\System32\net.exe use m: /delete /y > nul
+	C:\Windows\System32\net.exe use m: \\<%= @samba_server %>\movies /persistent:yes > nul
+)
+if not exist n: (
+	C:\Windows\System32\net.exe use n: /delete /y > nul
+	C:\Windows\System32\net.exe use n: \\<%= @samba_server %>\music /persistent:yes > nul
+)
+if not exist s: (
+	C:\Windows\System32\net.exe use s: /delete /y > nul
+	C:\Windows\System32\net.exe use s: \\<%= @samba_server %>\software /persistent:yes > nul
+)
+if not exist z: (
+rem	C:\Windows\System32\net.exe use z: /delete /y > nul
+rem	C:\Windows\System32\net.exe use z: \\<%= @samba_server %>\%username% /persistent:yes > nul
+)
+
+start /min explorer g:
+start /min explorer m:
+start /min explorer n:
+start /min explorer s:
+start /min "" "C:\Program Files (x86)\XBMC\XBMC.exe"

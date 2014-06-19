@@ -1,0 +1,6 @@
+[main]
+server=<%= @puppetmaster %>
+pluginsync=true
+autoflush=true
+environment = <%= @datacenter %>
+hiera_config=$confdir/hiera.yaml

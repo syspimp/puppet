@@ -1,0 +1,4 @@
+# runs puppet
+TERM=Linux
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/tfound/bin
+30 * * * * root /opt/tfound/bin/tfound-manage-puppet.sh -p > /dev/null 2>&1

@@ -1,0 +1,27 @@
+[2J[f
+TFOUND <%= @operatingsystem %> Standard Build. This system is the property 
+of TFOUND LLC, and is for the sole use of authorized personnel only. 
+Individuals using this system expressly consent to having all of their 
+activities monitored and recorded.
+
+Version: 	<%= @lsbdistdescription %>
+Admin Contact:  <%= @root_alias %>
+<%- if @environment.include?"prod" -%>
+Machine Status:	[32mIn <%= @environment.capitalize -%>[m
+<%- elsif @environment.include?"physical" -%>
+Machine Status:	[31mIn <%= @environment.capitalize -%>[m
+<%- elsif @environment.include?"qa" -%>
+Machine Status:	[35mIn <%= @environment.capitalize -%>[m
+<%- elsif @environment.include?"stage" -%>
+Machine Status:	[31mIn <%= @environment.capitalize -%>[m
+<%- elsif @environment.include?"openstack" -%>
+Machine Status:	[31mIn <%= @environment.capitalize -%>[m
+<%- elsif @environment.include?"dev" -%>
+Machine Status:	[33mIn <%= @environment.capitalize -%>[m
+<%- elsif @environment.include?"test" -%>
+Machine Status:	[31mIn <%= @environment.capitalize -%>[m
+<% else -%>
+Machine Status:	[31mUNKNOWN[m
+<%- end -%>
+
+

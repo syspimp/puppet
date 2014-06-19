@@ -1,0 +1,19 @@
+Host *compute-1.amazonaws.com
+ User ec2-user
+ IdentityFile ~/.ssh/tfound-ec2
+Host *
+ IdentityFile ~/.ssh/id_rsa
+ StrictHostKeyChecking no
+ UserKnownHostsFile=/dev/null
+Host chef-client
+ IdentityFile ~/.ssh/openstack
+ StrictHostKeyChecking no
+ UserKnownHostsFile=/dev/null
+Host chef-server
+ IdentityFile ~/.ssh/openstack
+ StrictHostKeyChecking no
+ UserKnownHostsFile=/dev/null
+Host jump-off
+ IdentityFile ~/.ssh/openstack
+ StrictHostKeyChecking no
+ UserKnownHostsFile=/dev/null

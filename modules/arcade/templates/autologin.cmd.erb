@@ -1,0 +1,4 @@
+if not exist C:\Arcade\locks\autologin.lock (
+  C:\Windows\System32\regedt32.exe /s C:\Arcade\registry\autologin.reg
+  type nul >> C:\Arcade\locks\autologin.lock
+)

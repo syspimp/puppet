@@ -1,0 +1,6 @@
+@echo off
+C:\Windows\System32\setx GPU_MAX_ALLOC_PERCENT 100
+C:\Windows\System32\setx GPU_USE_SYNC_OBJECTS 1
+echo "starting to mine in 10 sec.."
+ping 127.0.0.1 -n 10 > nul
+start C:\<%= @minerpath %>\<%= @minerprog %>\start-mining-multipool.cmd

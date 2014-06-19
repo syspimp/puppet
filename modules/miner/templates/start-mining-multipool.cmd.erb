@@ -1,0 +1,3 @@
+type nul >>c:\<%= @minerpath %>\mining.lock & copy c:\<%= @minerpath %>\mining.lock +,,
+C:\<%= @minerpath %>\<%= @minerprog %>\cgminer --scrypt -o stratum+tcp://pool1.us.multipool.us:7777 -u <%= @multipooluser %> -p <%= @multipoolpass %> -I 19 -g 1 -w 512 --thread-concurrency 33792 --gpu-engine 1025 --gpu-fan 100 --gpu-memclock 1500 --gpu-powertune 20 --temp-cutoff 96 --temp-overheat 95 --temp-target 90
+del c:\<%= @minerpath %>\mining.lock

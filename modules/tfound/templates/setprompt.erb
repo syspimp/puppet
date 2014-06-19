@@ -1,0 +1,50 @@
+#!/bin/bash
+
+export TFOUNDENV='PROD';
+export GREEN='\[\e[0;32m\]'
+export YELLOW='\[\e[0;36m\]'
+export RED='\[\e[0;31m\]'
+export ENDCOLOR='\[\e[0m\]';
+export STARTCOLOR=$RED;
+
+while getopts "d" OPTION
+do
+    case "$OPTION" in
+        # debug
+        d) set -x
+        ;;
+    esac
+done
+msg()
+{
+    echo -e "${RED}**${ENDCOLOR} $*"
+}
+
+set_the_prompt()
+{
+    # code goes here
+    OLDIFS=$IFS
+    IFS='.'
+    for part in $(hostname) ; do
+        case $part in
+            'dev')
+                export TFOUNDENV='DEV';
+                export STARTCOLOR=$GREEN;
+                ;;
+            'qa')
+                export TFOUNDENV='QA';
+                export STARTCOLOR=$YELLOW;
+                ;;
+            'prod')
+                export TFOUNDENV='PROD';
+                export STARTCOLOR=$RED;
+                ;;
+        esac
+        #echo "part is $part"
+    done
+    IFS=$OLDIFS
+}
+
+set_the_prompt
+
+

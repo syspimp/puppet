@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@<%= hostname %>
+    DocumentRoot /var/www/html/
+    ServerName <%= hostname %>
+    ErrorLog /var/log/apache2/vhost-logs/<%= hostname %>-error_log
+    CustomLog /var/log/apache2/vhost-logs/<%= hostname %>-access_log common
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+</VirtualHost>

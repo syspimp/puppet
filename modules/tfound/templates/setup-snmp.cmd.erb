@@ -1,0 +1,6 @@
+if not exist C:\Tfound\scripts\setup-snmp.lock (
+  C:\Windows\System32\regedt32.exe /s C:\Tfound\scripts\setup-snmp.reg
+  net stop snmp
+  net start snmp
+  type nul >> C:\Tfound\scripts\setup-snmp.lock
+)

@@ -1,0 +1,13 @@
+##
+### THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+##
+
+# Drop root to id 'ntp:ntp' by default.
+OPTIONS="-l /var/log/ntp/ntpd.log -p /var/run/ntp/ntpd.pid"
+
+# Set to 'yes' to sync hw clock after successful ntpdate
+SYNC_HWCLOCK=no
+
+# Additional options for ntpdate
+NTPDATE_OPTIONS=""
+

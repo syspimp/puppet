@@ -1,0 +1,40 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SNMP]
+"Type"=dword:00000010
+"Start"=dword:00000002
+"ErrorControl"=dword:00000001
+"ImagePath"=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,\
+  74,00,25,00,5c,00,53,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,73,\
+  00,6e,00,6d,00,70,00,2e,00,65,00,78,00,65,00,00,00
+"DisplayName"="@%SystemRoot%\\system32\\snmp.exe,-3"
+"ObjectName"="LocalSystem"
+"Description"="@%SystemRoot%\\system32\\snmp.exe,-4"
+"ServiceSidType"=dword:00000001
+"FailureActions"=hex:80,51,01,00,00,00,00,00,01,00,00,00,03,00,00,00,14,00,00,\
+  00,01,00,00,00,60,ea,00,00,01,00,00,00,60,ea,00,00,00,00,00,00,00,00,00,00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SNMP\Parameters]
+"NameResolutionRetries"=dword:00000010
+"EnableAuthenticationTraps"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SNMP\Parameters\ExtensionAgents]
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SNMP\Parameters\PermittedManagers]
+"1"="localhost"
+"2"="<%= @syslog %>"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SNMP\Parameters\RFC1156Agent]
+"sysServices"=dword:0000004f
+"sysLocation"="<%= @datacenter %>"
+"sysContact"="<%= @root_alias %>"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SNMP\Parameters\TrapConfiguration]
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SNMP\Parameters\TrapConfiguration\<%= @snmpcommunity %>]
+"1"="<%= @syslog %>"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SNMP\Parameters\ValidCommunities]
+"<%= @snmpcommunity %>"=dword:00000004
+
+

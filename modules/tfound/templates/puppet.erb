@@ -1,0 +1,28 @@
+##
+### THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+##
+[main]
+logdir = /var/log/puppet
+rundir = /var/run/puppet
+ssldir = $vardir/ssl
+hiera_config = $confdir/hiera.yaml
+pluginsync = true
+server = <%= @puppetmaster %>
+factpath = $vardir/lib/facter
+runinterval = 3600
+environment = <%= @datacenter %>
+<%- if @hostname.include?("puppet") -%>
+dns_alt_names = <%= @puppetmaster_alt_names %>
+<%- end -%>
+
+[agent]
+classfile = $vardir/classes.txt
+localconfig = $vardir/localconfig
+report = true
+
+<%- if @hostname.include?("puppet") -%>
+[master]
+storeconfigs = true
+storeconfigs_backend = puppetdb
+reports = store,puppetdb
+<%- end -%>

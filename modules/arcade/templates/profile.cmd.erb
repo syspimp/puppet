@@ -1,0 +1,4 @@
+if not exist C:\Arcade\locks\profile.lock (
+  C:\Windows\System32\regedt32.exe /s C:\Arcade\registry\profile.reg
+  type nul >> C:\Arcade\locks\profile.lock
+)

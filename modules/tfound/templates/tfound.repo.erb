@@ -1,0 +1,28 @@
+##
+### THIS FILE IS UNDER PUPPET CONTROL. DON'T EDIT IT HERE.
+##
+
+[tfound-noarch]
+name=TFOUND Base RPM Repository
+failovermethod=priority
+baseurl=http://<%=  scope.lookupvar('tfound::repoip') %>/yum/tfound/noarch/
+enabled=1
+
+[tfound-arch]
+name=TFOUND Base RPM Repository
+failovermethod=priority
+baseurl=http://<%= scope.lookupvar('tfound::repoip') %>/yum/tfound/$basearch/
+enabled=1
+
+[tfound-<%= scope.lookupvar('tfound::env') %>-noarch]
+name=TFOUND Environment RPM Repository
+failovermethod=priority
+baseurl=http://<%= scope.lookupvar('tfound::repoip') %>/yum/tfound-<%= scope.lookupvar('tfound::env') %>/noarch/
+enabled=0
+
+[tfound-<%= scope.lookupvar('tfound::env') %>-arch]
+name=TFOUND Environment RPM Repository
+failovermethod=priority
+baseurl=http://<%= scope.lookupvar('tfound::repoip') %>/yum/tfound-<%= scope.lookupvar('tfound::env') %>/$basearch/
+enabled=0
+## END ##

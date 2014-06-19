@@ -1,0 +1,38 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific aliases and functions
+
+function _copytorepo()
+{
+        cp -i $1 /var/www/yum/centos62/$2/Packages/
+        pushd /var/www/yum/centos62/$2 ; createrepo . ; popd
+}
+
+function copytonoarchrepo()
+{
+        _copytorepo $1 noarch
+
+}
+
+
+function copyto64bitrepo()
+{
+        _copytorepo $1 x86_64
+}
+
+
+function copyto32bitrepo()
+{
+        _copytorepo $1 i386
+}
+
+alias ll='ls -ahtrl'
+alias vi='vim'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
